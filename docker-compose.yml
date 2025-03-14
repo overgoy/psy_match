@@ -5,9 +5,9 @@ services:
     image: postgres:13
     restart: always
     environment:
-      POSTGRES_USER: goy
-      POSTGRES_PASSWORD: goy8800
-      POSTGRES_DB: psy_match
+      POSTGRES_USER:
+      POSTGRES_PASSWORD:
+      POSTGRES_DB:
     ports:
       - "5433:5432"
     volumes:
@@ -25,7 +25,7 @@ services:
       - "8080:8080"
     working_dir: /app
     volumes:
-      - ./config:/app/config  # Монтирование локальной папки config в контейнер
+      - ./config:/app/config
 
 volumes:
   db_data:

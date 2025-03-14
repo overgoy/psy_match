@@ -11,7 +11,6 @@ import (
 	"github.com/jackc/pgx/v4"
 )
 
-// Глобальное соединение с БД
 var db *pgx.Conn
 
 // UserProfile – структура данных пользователя
@@ -60,7 +59,6 @@ func applyMigration(conn *pgx.Conn) error {
 	return nil
 }
 
-// GetZodiacSign – Определение знака зодиака по дате рождения
 func GetZodiacSign(birthDate string) string {
 	layout := "2006-01-02"
 	date, err := time.Parse(layout, birthDate)
@@ -153,7 +151,6 @@ func SaveTestResult(userID int64, mbti string) error {
 	return nil
 }
 
-// GetUserProfileByID – извлечение профиля пользователя по user_id
 func GetUserProfileByID(userID int64) (*UserProfile, int, error) {
 	if db == nil {
 		return nil, 0, fmt.Errorf("Соединение с БД не установлено")
@@ -192,7 +189,6 @@ func GetUserProfileByTelegram(username string) (*UserProfile, int, error) {
 		return nil, 0, err
 	}
 
-	// Вычисляем возраст при запросе
 	age := CalculateAge(profile.BirthDate)
 	return &profile, age, nil
 }

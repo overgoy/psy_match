@@ -1,5 +1,3 @@
--- Скрипт создания таблицы user_profiles
-
 CREATE TABLE IF NOT EXISTS user_profiles (
                                              user_id BIGINT PRIMARY KEY,
                                              name TEXT NOT NULL,
