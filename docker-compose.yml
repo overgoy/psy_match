@@ -19,8 +19,8 @@ services:
     depends_on:
       - db
     environment:
-      BOT_TOKEN: "8019886114:AAFTURzkplGBB_Dsoy4RfwVidBmqJ8EQiTM"
-      DATABASE_URL: "postgres://goy:goy8800@db:5432/psy_match?sslmode=disable"
+      BOT_TOKEN:
+      DATABASE_URL:
     ports:
       - "8080:8080"
     working_dir: /app
