@@ -156,6 +156,8 @@ func GetUserProfileByID(userID int64) (*UserProfile, int, error) {
 		return nil, 0, fmt.Errorf("Соединение с БД не установлено")
 	}
 
+	log.Printf("Поиск профиля по user_id: %d", userID)
+
 	query := `SELECT u.user_id, u.name, u.birth_date, u.zodiac_sign, u.telegram_username, m.mbti
 	          FROM user_profiles u
 	          LEFT JOIN mbti_results m ON u.user_id = m.user_id

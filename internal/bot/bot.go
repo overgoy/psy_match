@@ -168,6 +168,8 @@ func ProfileStepHandler(c telebot.Context) error {
 			state.Data["telegram_username"] = "unknown"
 		}
 
+		log.Printf("Попытка сохранить профиль: user_id=%d, data=%+v", state.UserID, state.Data)
+		
 		database.SaveUserProfile(state.UserID, state.Data)
 
 		delete(userStates, userID)
